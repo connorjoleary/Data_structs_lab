@@ -14,14 +14,17 @@ public class main {
 		  Character key = keySetIterator.next();
 		  System.out.println("key: " + key + " value: " + letters.get(key));
 		}
-		Map<Character,Integer > sortedLetters = sort(letters, text.length());
+		int size = letters.size();
+		Tree theTree = new Tree();
 		
-		Iterator<Character> keySortedIterator = sortedLetters.keySet().iterator();
-		System.out.println(" ");
-		while(keySortedIterator.hasNext()){
-		  Character key = keySortedIterator.next();
-		  System.out.println("key: " + key + " value: " + letters.get(key));
+		for (int i = 0; i<size; i++){
+			char minimal_key = get_minimum_key(letters, text.length());
+			theTree.insert((int)minimal_key, i);
+			
+			letters.remove(minimal_key);
+			System.out.println("pass");
 		}
+		theTree.displayTree();
 		
 	}
 	
@@ -38,7 +41,25 @@ public class main {
 		
 		return letters;
 	}
-	public static Map<Character,Integer> sort(Map<Character,Integer> letters, int size){
+	
+	public static char get_minimum_key(Map<Character,Integer> letters, int size){
+		int minimalvalue = size;
+		char minimalkey = '?';
+		Iterator<Character> keySetIterator = letters.keySet().iterator();
+		
+		while(keySetIterator.hasNext()){
+			
+			  Character key = keySetIterator.next();
+			  if (letters.get(key)<minimalvalue){
+				  minimalvalue=letters.get(key);
+				  minimalkey=key;
+			  }
+		}
+		//System.out.println("Minimal key = " + minimalkey);
+		return minimalkey;
+		
+	}
+	/*public static Map<Character,Integer> sort(Map<Character,Integer> letters, int size){
 		Map<Character,Integer> sortedLetters = new Hashtable<Character,Integer>();
 		int minimalvalue;
 		char minimalkey;
@@ -63,6 +84,6 @@ public class main {
 		}
 		
 		return sortedLetters;
-	}
+	}*/
 
 }
