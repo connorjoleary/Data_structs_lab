@@ -22,7 +22,7 @@ public class main {
 			theTree.insert((int)minimal_key, i);
 			
 			letters.remove(minimal_key);
-			System.out.println("pass");
+			System.out.println(minimal_key + " " + (int)minimal_key);
 		}
 		theTree.displayTree();
 		
