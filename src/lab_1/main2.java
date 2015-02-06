@@ -19,7 +19,7 @@ public class main2 {
 		int size = letters.size();
 		Tree theTree = new Tree();
 		String newKey;
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < size - 1; i++) {
 			String minimal_key = get_minimum_key(letters, text.length());
 			int frequency = letters.get(minimal_key);
 			letters.remove(minimal_key);
@@ -28,28 +28,29 @@ public class main2 {
 			letters.remove(minimal_key2);
 			newKey = combine_keys(minimal_key, minimal_key2);
 			System.out.println(newKey);
-			letters.put(newKey, frequency+frequency2);
-			
-			//System.out.println(minimal_key + " " + (int) minimal_key);
+			letters.put(newKey, frequency + frequency2);
+
+			// System.out.println(minimal_key + " " + (int) minimal_key);
 		}
-		//theTree.displayTree();
+		// theTree.displayTree();
 
 	}
-	public static String combine_keys(String a, String b){
-		System.out.println("a= " +a+" b= "+b);
-		return a+b;
+
+	public static String combine_keys(String a, String b) {
+		System.out.println("a= " + a + " b= " + b);
+		return a + b;
 	}
 
 	public static Map<String, Integer> get_frequency(String text) {
 		Map<String, Integer> letters = new Hashtable<String, Integer>();
 		for (int i = 0; i < text.length(); i++) {
 
-			if (letters.containsKey(text.charAt(i)+"")) {
-				//System.out.println(letters.get(text.charAt(i)+""));
-				letters.put(text.charAt(i)+"",
-						letters.get(text.charAt(i)+"") + 1);
+			if (letters.containsKey(text.charAt(i) + "")) {
+				// System.out.println(letters.get(text.charAt(i)+""));
+				letters.put(text.charAt(i) + "",
+						letters.get(text.charAt(i) + "") + 1);
 			} else {
-				letters.put(text.charAt(i)+"", 1);
+				letters.put(text.charAt(i) + "", 1);
 			}
 		}
 		return letters;
@@ -72,5 +73,5 @@ public class main2 {
 		return minimalkey;
 
 	}
-	
+
 }
