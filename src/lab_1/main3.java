@@ -1,10 +1,10 @@
 package lab_1;
 import java.io.*;
 import java.util.*; 
-
 import static lab_1.TreeApp.getChar;
 
-public class main {
+
+public class main3 {
 
 	public static void main(String[] args) throws IOException {
             
