@@ -30,7 +30,7 @@ public class Floyd_algorithm {
 					if (table[i][j]>(table[i][k]+table[k][j])&&(table[i][k]+table[k][j])>=0){
 						table[i][j]= table[i][k]+table[k][j];
 						System.out.println(Arrays.deepToString(table).replaceAll("],", "],\r\n"));
-						System.out.println(k+" "+i+" "+j+"\n");
+						//System.out.println(k+" "+i+" "+j+"\n");
 					}
 				}
 				//System.out.println(Arrays.deepToString(table).replaceAll("],", "],\r\n"));
