@@ -1,5 +1,6 @@
 package lab_3;
 import java.util.Arrays;
+import java.util.Scanner;
 //1 let dist be a |V| � |V| array of minimum distances initialized to (infinity)
 //2 for each vertex v
 //3    dist[v][v] <- 0
@@ -20,19 +21,25 @@ public class Floyd_algorithm {
 		{Integer.MAX_VALUE,50,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE}};;
 
 	public static void main(String[] args) {
-		for (int k=0; k<5; k++){
-			for (int i=0; i<5; i++){
-				for (int j=0; j<5; j++){
-					if (table[i][j]>(table[i][k]+table[k][j])&&(table[i][k]+table[k][j])>=0){
-						table[i][j]= table[i][k]+table[k][j];
+            System.out.println("Starting Matrix");
+            displayMatrix();
+            Scanner in = new Scanner(System.in);
+            Scanner keyboard = new Scanner(System.in);
+            
+            for (int k = 0; k < 5; k++) {
+                for (int i = 0; i < 5; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        if (table[i][j] > (table[i][k] + table[k][j]) && (table[i][k] + table[k][j]) >= 0) {
+                            table[i][j] = table[i][k] + table[k][j];
+                            System.out.println("Press enter to continue...");
+                            keyboard.nextLine();
 
-                                                displayMatrix();
-						System.out.println(k+" "+i+" "+j+"\n");
+                            displayMatrix();
+                            System.out.println(k + " " + i + " " + j + "\n");
 					}
 				}
 			}
 		}
-                displayMatrix();
 	}
 
     public static void displayMatrix() {
