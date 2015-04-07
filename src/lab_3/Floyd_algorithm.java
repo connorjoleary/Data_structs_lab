@@ -17,24 +17,45 @@ public class Floyd_algorithm {
 		,{Integer.MAX_VALUE,Integer.MAX_VALUE,60,90,Integer.MAX_VALUE}
 		,{Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE,40},
 		{Integer.MAX_VALUE,Integer.MAX_VALUE,20,Integer.MAX_VALUE,70},
+<<<<<<< HEAD
 		{Integer.MAX_VALUE,50,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE}};;
 
 	public static void main(String[] args) {
             
+=======
+		{Integer.MAX_VALUE,50,Integer.MAX_VALUE,Integer.MAX_VALUE,Integer.MAX_VALUE}};
+		System.out.println("Initial Array is:");
+		System.out.println(Arrays.deepToString(table).replaceAll("],", "],\r\n")
+				.replaceAll(Integer.MAX_VALUE+"", "--"));
+		System.out.println("");
+>>>>>>> origin/master
 		for (int k=0; k<5; k++){
 			for (int i=0; i<5; i++){
 				for (int j=0; j<5; j++){
 					if (table[i][j]>(table[i][k]+table[k][j])&&(table[i][k]+table[k][j])>=0){
 						table[i][j]= table[i][k]+table[k][j];
+<<<<<<< HEAD
                                                 displayMatrix();
 						System.out.println(k+" "+i+" "+j+"\n");
+=======
+						System.out.println("All pairs shortest paths are:");
+						System.out.println(Arrays.deepToString(table).replaceAll("],", "],\r\n")
+								.replaceAll(Integer.MAX_VALUE+"", "--"));
+						System.out.println("");
+						//System.out.println(k+" "+i+" "+j+"\n");
+>>>>>>> origin/master
 					}
 				}
 			}
 		}
+<<<<<<< HEAD
                 displayMatrix();
 
                
+=======
+		//System.out.println(Arrays.deepToString(table).replaceAll("],", "],\r\n")
+		//		.replaceAll(Integer.MAX_VALUE+"", "---"));
+>>>>>>> origin/master
 	}
 
     public static void displayMatrix() {
