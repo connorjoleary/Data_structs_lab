@@ -35,7 +35,7 @@ public class Floyd_algorithm {
                             keyboard.nextLine();
 
                             displayMatrix();
-                            System.out.println(k + " " + i + " " + j + "\n");
+                            //System.out.println(k + " " + i + " " + j + "\n");
 					}
 				}
 			}
