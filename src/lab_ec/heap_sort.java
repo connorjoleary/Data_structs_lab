@@ -18,16 +18,16 @@ public class heap_sort {
 		}
 		return arr;
 	}
-	public static int[] sort(int index, int n){
+	public static void sort(int index, int n){
 		if (index>n/2){
-			
+			return;
 		}
 		else{
-			sort()
+			sort(index/2+1, n);
+			sort(index/2+2, n);
+			
 		}
 		
-		
-		return t;
 	}
 
 }
