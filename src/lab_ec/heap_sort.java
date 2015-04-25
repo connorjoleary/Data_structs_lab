@@ -3,21 +3,31 @@ package lab_ec;
 import java.util.Random;
 
 public class heap_sort {
-
+	int[] arr= new int[7];
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Tree t = make_initial_tree();
-		t.displayTree();
-		
+		arr = make_initial_tree();
+		int[] sorted = sort(0, 7);
 	}
-	public static Tree make_initial_tree(){
-		Tree theTree = new Tree();
-		for (int i=0; i<5; i++){
+	public static int[] make_initial_tree(){
+		int[] arr = new int[7];
+		for (int i=0; i<6; i++){
 			Random generator = new Random(); 
 			int j = generator.nextInt(24) + 1;
-			theTree.insert(j);
+			arr[i]=j;
 		}
-		return theTree;
+		return arr;
+	}
+	public static int[] sort(int index, int n){
+		if (index>n/2){
+			
+		}
+		else{
+			sort()
+		}
+		
+		
+		return t;
 	}
 
 }
