@@ -1,25 +1,29 @@
 package lab_ec;
 
 import java.util.Random;
-
+import java.util.Arrays;
 public class heap_sort {
 	static int[] arr= new int[7];
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		arr = make_initial_tree();
-		int[] sorted = sort(0, 7);
+		System.out.println(Arrays.toString(arr));
+		sort(0, 7);
+		System.out.println(Arrays.toString(arr));
 	}
 	public static int[] make_initial_tree(){
 		int[] arr = new int[7];
-		for (int i=0; i<6; i++){
+		for (int i=0; i<7; i++){
 			Random generator = new Random(); 
-			int j = generator.nextInt(24) + 1;
+			int j = generator.nextInt(199) + 1;
 			arr[i]=j;
 		}
 		return arr;
 	}
 	public static void sort(int index, int n){
-		if (index>n/2){
+		System.out.println(index);
+		if (index>=n/2){
+			System.out.println("leaf");
 			return;
 		}
 		else{
@@ -30,11 +34,12 @@ public class heap_sort {
 		
 	}
 	public static void trickle_down(int x){
+		System.out.println("next: "+x);
 		while (arr[x] < arr[2*x+1] ||
 				arr[x] < arr[2*x+2]){
 			 int largerChild = max_child(x);
-			 swap(arr[x], largerChild);
-			 if (largerChild==arr[2*x+1]){
+			 swap(x, largerChild);
+			 if (largerChild==2*x+1){
 				 x = 2*x+1;
 			 }
 			 else{
@@ -42,13 +47,17 @@ public class heap_sort {
 			 }
 		}
 	}
-	public static int max_child(int index){
-		if (a>b)
-			return a;
+	public static int max_child(int x){
+		if (arr[2*x+1]>arr[2*x+2])
+			return x*2+1;
 		else{
-			return b;
+			return x*2+2;
 		}
 	}
-	public static swap()
-	
+	public static void swap(int x, int larger){
+		int temp=arr[x];
+		arr[x]=arr[larger];
+		arr[larger]=temp;
+	}
+		
 }
