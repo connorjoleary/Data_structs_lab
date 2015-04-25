@@ -29,16 +29,26 @@ public class heap_sort {
 		}
 		
 	}
-	public static trickle_down(int x){
+	public static void trickle_down(int x){
 		while (arr[x] < arr[2*x+1] ||
 				arr[x] < arr[2*x+2]){
-			 int largerChild = max(heapArray[2x+1], heapArray[2x+2]);
-			 swap(heapArray[x], largerChild);
-			 if (largerChild was left child)
-			 x = 2x+1;
+			 int largerChild = max_child(x);
+			 swap(arr[x], largerChild);
+			 if (largerChild==arr[2*x+1]){
+				 x = 2*x+1;
+			 }
 			 else{
-			 x = 2x+2; 
+				 x = 2*x+2; 
 			 }
 		}
 	}
+	public static int max_child(int index){
+		if (a>b)
+			return a;
+		else{
+			return b;
+		}
+	}
+	public static swap()
+	
 }
