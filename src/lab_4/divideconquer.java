@@ -8,14 +8,16 @@ running time of your algorithm should be O(nlogn). Sample output of your solutio
 look like:*/
 
 public class divideconquer {
-    public static double Input[][];
+    public static double input[][];
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
             //input
-            int ran = new Random();
-            for(int i = 0; i< ;i++){
-                
+            Random ran = new Random();
+            for(int i = 0; i< 12;i++){
+                for(int j = 0; j< 12;j++){
+                    input[i][j] = ran.nextInt(31);
+                }
             }
 	}
 
