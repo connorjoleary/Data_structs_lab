@@ -12,14 +12,34 @@ public class divideconquer {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-            //input
+            input=new double[12][2];
             Random ran = new Random();
-            for(int i = 0; i< 1;i++){
-                for(int j = 0; j< 1;j++){
-                    input[i][j] = ran.nextInt(31);
-                    System.out.println(input[i][j]);
+            for(int i = 0; i< 12;i++){
+                for(int j = 0; j< 2;j++){
+                    input[i][j] = ran.nextInt(1000)/10.0;
+                    System.out.print(input[i][j]+ " ");
                 }
+                System.out.println("");
             }
+            sort_for_x();
+            System.out.println("");
+            for(int i = 0; i< 12;i++){
+            	System.out.println(input[i][0]);
+            }
+            
+            System.out.println("Final result: P1: ("+ ", P2: " +", Distance: ");
 	}
+	public static void sort_for_x(){
+		for (int i=1; i<input.length; i++){
+			double[] temp = input[i];
+			int j;
+			for (j=i-1; j>=0 && temp[0]<input[j][0];j--){
+				input[j+1]=input[j];
+			}
+			input[j+1]=temp;
+		}
+	}
+	
+		
 
 }
