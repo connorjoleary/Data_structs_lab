@@ -15,7 +15,7 @@ public class divideconquer {
             //input
             Random ran = new Random();
             for(int i = 0; i< 1;i++){
-                for(int j = 0; j< 12;j++){
+                for(int j = 0; j< 1;j++){
                     input[i][j] = ran.nextInt(31);
                     System.out.println(input[i][j]);
                 }
