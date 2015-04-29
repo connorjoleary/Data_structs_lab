@@ -45,7 +45,11 @@ public class divideconquer {
 		if (num==2)
 			return dist(input[p1_index],input[p2_index]);
 		m = middle(num);
-		
+		//divide s into s1 and s2
+		double d1=closest_pair(s1, )
+	}
+	public static double dist(double[] p1, double[] p2){
+		return Math.sqrt((p1[0]+p2[0])*(p1[0]+p2[0])+(p1[1]+p2[1])*(p1[1]+p2[1]));
 	}
 	
 		
