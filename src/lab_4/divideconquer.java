@@ -39,6 +39,14 @@ public class divideconquer {
 			input[j+1]=temp;
 		}
 	}
+	public static double closest_pair(int num,int p1_index, int p2_index){
+		if (num==1)
+			return Double.POSITIVE_INFINITY;
+		if (num==2)
+			return dist(input[p1_index],input[p2_index]);
+		m = middle(num);
+		
+	}
 	
 		
 
