@@ -49,14 +49,8 @@ public class divideconquer {
 		double d1=closest_pair(s1, )
 	}
 	public static double dist(double[] p1, double[] p2){
-		return Math.sqrt((p1[0]+p2[0])*(p1[0]+p2[0])+(p1[1]+p2[1])*(p1[1]+p2[1]));
+		return Math.sqrt(Math.pow((p1[0]+p2[0]),2)+Math.pow((p1[1]+p2[1]),2));
 	}
 	
-		
-
-        public static int dist(){
-            
-            return 
-        }
 }
 
