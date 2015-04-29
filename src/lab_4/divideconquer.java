@@ -14,9 +14,10 @@ public class divideconquer {
 		// TODO Auto-generated method stub
             //input
             Random ran = new Random();
-            for(int i = 0; i< 12;i++){
+            for(int i = 0; i< 1;i++){
                 for(int j = 0; j< 12;j++){
                     input[i][j] = ran.nextInt(31);
+                    System.out.println(input[i][j]);
                 }
             }
 	}
