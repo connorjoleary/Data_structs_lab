@@ -1,18 +1,20 @@
 package lab_1;
+import static java.lang.System.in;
+import static java.lang.System.out;
 import java.util.*;
 public class main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Type in your message: ");
+		Scanner keyboard = new Scanner(in);
+		out.println("Type in your message: ");
 		String text = keyboard.nextLine();
 		Map<Character,Integer > letters = get_frequency(text);
 		Iterator<Character> keySetIterator = letters.keySet().iterator();
 
 		while(keySetIterator.hasNext()){
 		  Character key = keySetIterator.next();
-		  System.out.println("key: " + key + " value: " + letters.get(key));
+		  out.println("key: " + key + " value: " + letters.get(key));
 		}
 		int size = letters.size();
 		Tree theTree = new Tree();
@@ -22,7 +24,7 @@ public class main {
 			theTree.insert((int)minimal_key, i);
 			
 			letters.remove(minimal_key);
-			System.out.println(minimal_key + " " + (int)minimal_key);
+			out.println(minimal_key + " " + (int)minimal_key);
 		}
 		theTree.displayTree();
 		

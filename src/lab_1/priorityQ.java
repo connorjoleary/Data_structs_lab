@@ -1,6 +1,7 @@
 package lab_1;
 
 import java.io.IOException;
+import static java.lang.System.out;
 
 class PriorityQ
 {
@@ -62,9 +63,9 @@ class PriorityQApp
 		while( !thePQ.isEmpty() )
 		{
 			long item = thePQ.remove();
-			System.out.print(item + " "); // 10, 20, 30, 40, 50
+			out.print(item + " "); // 10, 20, 30, 40, 50
 		} // end while
-		System.out.println("");
+		out.println("");
 	} // end main()
 	//-------------------------------------------------------------
 } // end class PriorityQApp

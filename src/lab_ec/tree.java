@@ -1,5 +1,6 @@
 package lab_ec;
 import java.io.*;
+import static java.lang.System.out;
 import java.util.*; // for Stack class
 ////////////////////////////////////////////////////////////////
 class Node
@@ -10,11 +11,11 @@ class Node
 	public Node rightChild; // this node's right child
 	public void displayNode() // display ourself
 	{
-		System.out.print('{');
-		System.out.print(iData);
-		System.out.print(", ");
+		out.print('{');
+		out.print(iData);
+		out.print(", ");
 		//System.out.print(dData);
-		System.out.print("} ");
+		out.print("} ");
 	}
 } // end class Node
 ////////////////////////////////////////////////////////////////
@@ -169,24 +170,24 @@ class Tree
 	{
 		switch(traverseType)
 		{
-		case 1: System.out.print("\nPreorder traversal: ");
+		case 1: out.print("\nPreorder traversal: ");
 		preOrder(root);
 		break;
-		case 2: System.out.print("\nInorder traversal: ");
+		case 2: out.print("\nInorder traversal: ");
 		inOrder(root);
 		break;
-		case 3: System.out.print("\nPostorder traversal: ");
+		case 3: out.print("\nPostorder traversal: ");
 		postOrder(root);
 		break;
 		}
-		System.out.println();
+		out.println();
 	}
 	// -------------------------------------------------------------
 	private void preOrder(Node localRoot)
 	{
 		if(localRoot != null)
 		{
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 			preOrder(localRoot.leftChild);
 			preOrder(localRoot.rightChild);
 		}
@@ -197,7 +198,7 @@ class Tree
 		if(localRoot != null)
 		{
 			inOrder(localRoot.leftChild);
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 			inOrder(localRoot.rightChild);
 		}
 	}
@@ -208,7 +209,7 @@ class Tree
 		{
 			postOrder(localRoot.leftChild);
 			postOrder(localRoot.rightChild);
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 		}
 	}
 	// -------------------------------------------------------------
@@ -218,20 +219,20 @@ class Tree
 		globalStack.push(root);
 		int nBlanks = 32;
 		boolean isRowEmpty = false;
-		System.out.println(
+		out.println(
 				"......................................................");
 		while(isRowEmpty==false)
 		{
 			Stack localStack = new Stack();
 			isRowEmpty = true;
 			for(int j=0; j<nBlanks; j++)
-				System.out.print(' ');
+				out.print(' ');
 			while(globalStack.isEmpty()==false)
 			{
 				Node temp = (Node)globalStack.pop();
 				if(temp != null)
 				{
-					System.out.print(temp.iData);
+					out.print(temp.iData);
 					localStack.push(temp.leftChild);
 					localStack.push(temp.rightChild);
 					if(temp.leftChild != null ||
@@ -240,19 +241,19 @@ class Tree
 				}
 				else
 				{
-					System.out.print("--");
+					out.print("--");
 					localStack.push(null);
 					localStack.push(null);
 				}
 				for(int j=0; j<nBlanks*2-2; j++)
-					System.out.print(' ');
+					out.print(' ');
 			} // end while globalStack not empty
-			System.out.println();
+			out.println();
 			nBlanks /= 2;
 			while(localStack.isEmpty()==false)
 				globalStack.push( localStack.pop() );
 		} // end while isRowEmpty is false
-		System.out.println(
+		out.println(
 				"......................................................");
 	} // end displayTree()
 	// -------------------------------------------------------------

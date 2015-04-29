@@ -1,6 +1,9 @@
 package lab_2;
 
 import java.io.IOException;
+import static java.lang.System.exit;
+import static java.lang.System.in;
+import static java.lang.System.out;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Scanner;
@@ -18,33 +21,33 @@ public class HashTable {
     
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        System.out.print("Enter size(max 15): ");
-        Scanner size = new Scanner(System.in);
+        out.print("Enter size(max 15): ");
+        Scanner size = new Scanner(in);
         index = size.nextInt();
-        System.out.print("Enter first letter of ");
-        System.out.print("insert, show, find, or end: ");
-        char choice = (char) System.in.read();
+        out.print("Enter first letter of ");
+        out.print("insert, show, find, or end: ");
+        char choice = (char) in.read();
         switch(choice){
             case 's':
                 show();
                 break;
             case 'f':
-                System.out.print("enter values to find: ");
-                Scanner key = new Scanner(System.in);
+                out.print("enter values to find: ");
+                Scanner key = new Scanner(in);
                 search(key.nextInt());
                 break;
             case 'i':
-                System.out.println("Enter the variables for the trees: ");
+                out.println("Enter the variables for the trees: ");
                 for(int i=0; i<index; i++){
                     insert(i);
-                    System.out.println("enter another tree: ");
+                    out.println("enter another tree: ");
                 }
                 break;
             case 'e':
-                System.exit(0);
+                exit(0);
                 break;
             default:
-                System.out.print("Invalid entry\n");
+                out.print("Invalid entry\n");
             
         }
     }
@@ -53,8 +56,8 @@ public class HashTable {
         Tree theTree = new Tree();
         theTree = null;
         for (int j = 0; j < 4; j++) {
-            Scanner keyboard = new Scanner(System.in);
-            System.out.print("enter values in tree: ");
+            Scanner keyboard = new Scanner(in);
+            out.print("enter values in tree: ");
             theTree.insertTree(keyboard.nextInt());
         }
         table.put(input, theTree);
@@ -74,9 +77,9 @@ public class HashTable {
         Tree displayTree = new Tree();
         for (int i = 0; i < index; i++) {
             displayTree = (Tree) table.get(i);
-            System.out.print(i + ": ");
+            out.print(i + ": ");
             displayTree.traverse(2, displayTree.root);
-            System.out.println();
+            out.println();
         }
 
     }
@@ -93,11 +96,11 @@ public class HashTable {
 
             public void displayNode() // display ourself
             {
-                System.out.print('{');
-                System.out.print(iData);
-                System.out.print(", ");
-                System.out.print(dData);
-                System.out.print("} ");
+                out.print('{');
+                out.print(iData);
+                out.print(", ");
+                out.print(dData);
+                out.print("} ");
             }
         } // end class Node
         Node root;
@@ -144,24 +147,24 @@ public class HashTable {
 	{
 		switch(traverseType)
 		{
-		case 1: System.out.print("\nPreorder traversal: ");
+		case 1: out.print("\nPreorder traversal: ");
 		preOrder(localRoot);
 		break;
-		case 2: System.out.print("\nInorder traversal: ");
+		case 2: out.print("\nInorder traversal: ");
 		inOrder(localRoot);
 		break;
-		case 3: System.out.print("\nPostorder traversal: ");
+		case 3: out.print("\nPostorder traversal: ");
 		postOrder(localRoot);
 		break;
 		}
-		System.out.println();
+		out.println();
 	}
 	// -------------------------------------------------------------
 	private void preOrder(Node localRoot)
 	{
 		if(localRoot != null)
 		{
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 			preOrder(localRoot.leftChild);
 			preOrder(localRoot.rightChild);
 		}
@@ -172,7 +175,7 @@ public class HashTable {
 		if(localRoot != null)
 		{
 			inOrder(localRoot.leftChild);
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 			inOrder(localRoot.rightChild);
 		}
 	}
@@ -183,7 +186,7 @@ public class HashTable {
 		{
 			postOrder(localRoot.leftChild);
 			postOrder(localRoot.rightChild);
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 		}
 	}
 
@@ -202,11 +205,11 @@ public class HashTable {
                 }
                 if (current == null) // if no child,
                 {
-                    System.out.println("didn't find "+key);
+                    out.println("didn't find "+key);
                     return null; // didn't find it
                 }
             }
-            System.out.println("found "+key);
+            out.println("found "+key);
             return current; // found it
         } // end find()
 

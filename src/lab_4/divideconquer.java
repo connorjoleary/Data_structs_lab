@@ -1,5 +1,5 @@
 package lab_4;
-
+import java.util.*;
 import java.util.Random;
 
 /*Implement the divide-and-conquer algorithm you learnt in the class to solve the closest pair of
@@ -50,4 +50,9 @@ public class divideconquer {
 	
 		
 
+        public static int dist(){
+            
+            return 
+        }
 }
+

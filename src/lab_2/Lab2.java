@@ -2,6 +2,10 @@ package lab_2;
 
 
 import java.io.*;
+import static java.lang.Integer.parseInt;
+import static java.lang.System.exit;
+import static java.lang.System.in;
+import static java.lang.System.out;
 import java.util.*; 
 
 public class Lab2 {
@@ -12,35 +16,35 @@ public class Lab2 {
     
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        System.out.print("Enter size: ");
-        Scanner size = new Scanner(System.in);
+        out.print("Enter size: ");
+        Scanner size = new Scanner(in);
         index = size.nextInt();
-        System.out.print("Enter first letter of ");
-        System.out.print("insert, show, find, or end: ");
-        char choice = (char) System.in.read();
+        out.print("Enter first letter of ");
+        out.print("insert, show, find, or end: ");
+        char choice = (char) in.read();
         switch(choice){
             case 's':
                 break;
             case 'f':
                 break;
             case 'i':
-                Scanner keyboard = new Scanner(System.in);
-                System.out.println("Enter the variables, max of 15: ");
+                Scanner keyboard = new Scanner(in);
+                out.println("Enter the variables, max of 15: ");
                 int input = keyboard.nextInt();
                 insert(input);
                 break;
             case 'e':
-                System.exit(0);
+                exit(0);
                 break;
             default:
-                System.out.print("Invalid entry\n");
+                out.print("Invalid entry\n");
             
         }
     }
     
     public static String getString() throws IOException
 	{
-		InputStreamReader isr = new InputStreamReader(System.in);
+		InputStreamReader isr = new InputStreamReader(in);
 		BufferedReader br = new BufferedReader(isr);
 		String s = br.readLine();
 		return s;
@@ -55,10 +59,10 @@ public class Lab2 {
 	public static int getInt() throws IOException
 	{
 		String s = getString();
-		return Integer.parseInt(s);
+		return parseInt(s);
 	}
         public static void insert(int input){
-        System.out.println(input);
+        out.println(input);
     }
     public void search(int key){
         
@@ -79,11 +83,11 @@ public class Lab2 {
 
             public void displayNode() // display ourself
             {
-                System.out.print('{');
-                System.out.print(iData);
-                System.out.print(", ");
-                System.out.print(dData);
-                System.out.print("} ");
+                out.print('{');
+                out.print(iData);
+                out.print(", ");
+                out.print(dData);
+                out.print("} ");
             }
         } // end class Node
         Node root;

@@ -1,5 +1,6 @@
 package lab_ec;
 
+import static java.lang.System.out;
 import java.util.Random;
 import java.util.Arrays;
 public class heap_sort {
@@ -8,9 +9,9 @@ public class heap_sort {
 		// TODO Auto-generated method stub
 		int size=16;
 		arr = make_initial_tree(size);
-		System.out.println(Arrays.toString(arr));
+		out.println(Arrays.toString(arr));
 		sort(0, size);
-		System.out.println(Arrays.toString(arr));
+		out.println(Arrays.toString(arr));
 	}
 	public static int[] make_initial_tree(int n){
 		int[] arr = new int[n];

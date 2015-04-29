@@ -1,5 +1,8 @@
 package lab_1;
 import java.io.*;
+import static java.lang.Integer.parseInt;
+import static java.lang.System.in;
+import static java.lang.System.out;
 import java.util.*; // for Stack class
 ////////////////////////////////////////////////////////////////
 class Node
@@ -10,11 +13,11 @@ class Node
 	public Node rightChild; // this node's right child
 	public void displayNode() // display ourself
 	{
-		System.out.print('{');
-		System.out.print(iData);
-		System.out.print(", ");
-		System.out.print(dData);
-		System.out.print("} ");
+		out.print('{');
+		out.print(iData);
+		out.print(", ");
+		out.print(dData);
+		out.print("} ");
 	}
 } // end class Node
 ////////////////////////////////////////////////////////////////
@@ -169,24 +172,24 @@ class Tree
 	{
 		switch(traverseType)
 		{
-		case 1: System.out.print("\nPreorder traversal: ");
+		case 1: out.print("\nPreorder traversal: ");
 		preOrder(root);
 		break;
-		case 2: System.out.print("\nInorder traversal: ");
+		case 2: out.print("\nInorder traversal: ");
 		inOrder(root);
 		break;
-		case 3: System.out.print("\nPostorder traversal: ");
+		case 3: out.print("\nPostorder traversal: ");
 		postOrder(root);
 		break;
 		}
-		System.out.println();
+		out.println();
 	}
 	// -------------------------------------------------------------
 	private void preOrder(Node localRoot)
 	{
 		if(localRoot != null)
 		{
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 			preOrder(localRoot.leftChild);
 			preOrder(localRoot.rightChild);
 		}
@@ -197,7 +200,7 @@ class Tree
 		if(localRoot != null)
 		{
 			inOrder(localRoot.leftChild);
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 			inOrder(localRoot.rightChild);
 		}
 	}
@@ -208,7 +211,7 @@ class Tree
 		{
 			postOrder(localRoot.leftChild);
 			postOrder(localRoot.rightChild);
-			System.out.print(localRoot.iData + " ");
+			out.print(localRoot.iData + " ");
 		}
 	}
 	// -------------------------------------------------------------
@@ -218,20 +221,20 @@ class Tree
 		globalStack.push(root);
 		int nBlanks = 32;
 		boolean isRowEmpty = false;
-		System.out.println(
+		out.println(
 				"......................................................");
 		while(isRowEmpty==false)
 		{
 			Stack localStack = new Stack();
 			isRowEmpty = true;
 			for(int j=0; j<nBlanks; j++)
-				System.out.print(' ');
+				out.print(' ');
 			while(globalStack.isEmpty()==false)
 			{
 				Node temp = (Node)globalStack.pop();
 				if(temp != null)
 				{
-					System.out.print(temp.iData);
+					out.print(temp.iData);
 					localStack.push(temp.leftChild);
 					localStack.push(temp.rightChild);
 					if(temp.leftChild != null ||
@@ -240,19 +243,19 @@ class Tree
 				}
 				else
 				{
-					System.out.print("--");
+					out.print("--");
 					localStack.push(null);
 					localStack.push(null);
 				}
 				for(int j=0; j<nBlanks*2-2; j++)
-					System.out.print(' ');
+					out.print(' ');
 			} // end while globalStack not empty
-			System.out.println();
+			out.println();
 			nBlanks /= 2;
 			while(localStack.isEmpty()==false)
 				globalStack.push( localStack.pop() );
 		} // end while isRowEmpty is false
-		System.out.println(
+		out.println(
 				"......................................................");
 	} // end displayTree()
 	// -------------------------------------------------------------
@@ -277,8 +280,8 @@ class TreeApp
 		theTree.insert(97, 1.5);
 		while(true)
 		{
-			System.out.print("Enter first letter of show, ");
-			System.out.print("insert, find, delete, or traverse: ");
+			out.print("Enter first letter of show, ");
+			out.print("insert, find, delete, or traverse: ");
 			int choice = getChar();
 			switch(choice)
 			{
@@ -286,48 +289,48 @@ class TreeApp
 				theTree.displayTree();
 				break;
 			case 'i':
-				System.out.print("Enter value to insert: ");
+				out.print("Enter value to insert: ");
 				value = getInt();
 				theTree.insert(value, value + 0.9);
 				break;
 			case 'f':
-				System.out.print("Enter value to find: ");
+				out.print("Enter value to find: ");
 				value = getInt();
 				Node found = theTree.find(value);
 				if(found != null)
 				{
-					System.out.print("Found: ");
+					out.print("Found: ");
 					found.displayNode();
-					System.out.print("\n");
+					out.print("\n");
 				}
 				else
-					System.out.print("Could not find ");
-				System.out.print(value + '\n');
+					out.print("Could not find ");
+				out.print(value + '\n');
 				break;
 			case 'd':
-				System.out.print("Enter value to delete: ");
+				out.print("Enter value to delete: ");
 				value = getInt();
 				boolean didDelete = theTree.delete(value);
 				if(didDelete)
-					System.out.print("Deleted " + value + '\n');
+					out.print("Deleted " + value + '\n');
 				else
-					System.out.print("Could not delete ");
-				System.out.print(value + '\n');
+					out.print("Could not delete ");
+				out.print(value + '\n');
 				break;
 			case 't':
-				System.out.print("Enter type 1, 2 or 3: ");
+				out.print("Enter type 1, 2 or 3: ");
 				value = getInt();
 				theTree.traverse(value);
 				break;
 			default:
-				System.out.print("Invalid entry\n");
+				out.print("Invalid entry\n");
 			} // end switch
 		} // end while
 	} // end main()
 	// -------------------------------------------------------------
 	public static String getString() throws IOException
 	{
-		InputStreamReader isr = new InputStreamReader(System.in);
+		InputStreamReader isr = new InputStreamReader(in);
 		BufferedReader br = new BufferedReader(isr);
 		String s = br.readLine();
 		return s;
@@ -342,7 +345,7 @@ class TreeApp
 	public static int getInt() throws IOException
 	{
 		String s = getString();
-		return Integer.parseInt(s);
+		return parseInt(s);
 	}
 	// -------------------------------------------------------------
 } // end class TreeApp
