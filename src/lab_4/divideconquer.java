@@ -64,7 +64,7 @@ public class divideconquer {
 		
 		double d1=closest_pair((m-p1_index)+1, p1_index, m );
                 double d2=closest_pair((m-p2_index)+1, m+1, p2_index);
-                double d3=closest_pair_xcut(m, s, d)
+                double d3=closest_pair_xcut(m, min(d1, d2, 0.0));
                 return(min(d1,d2,d3));
 	}
 	public static double dist(double[] p1, double[] p2){
@@ -73,8 +73,23 @@ public class divideconquer {
         public static double min(double d1, double d2 ,double d3){
             return 0;
         }
-        public static double closest_pair_xcut(m, s, d){
-            
+        public static double closest_pair_xcut(int m, double d){
+            sort_for_y();
+            double [][] sc = {{0.0},{0.0}};
+            for(int i = 0; i<input.length;i++){
+                if((input[i][0]-m)<d){
+                    sc[i][0] = input[i][0];
+                    sc[i][1] = input[i][1];
+                }
+            }for (int k = 1; k < 4; k++) {
+                for (int j = 0; j < input.length; j++) {
+                    if ((input[j][0] - sc[j][0]) < m) {
+                        d = min(d, dist(sc[j],sc[j+k]), dist(sc[j],sc[j-k]));
+                            
+                    }
+                }
+            }
+            return d;
         }
 	
 }
