@@ -9,8 +9,8 @@ look like:*/
 
 public class divideconquer {
     //temp hard code
-    public static double [][] input = new double[][]{{2.0,4.0,5.0,10.0,14.0,15.0,17.0,19.0,22.0,25.0,29.0,30.0}, {7.0,13.0,8.0,5.0,9.0,5.0,7.0,10.0,7.0,10.0,14.0,2.0}};
-    //public static double input[][];
+    public static double [][] input = new double[][]{{2.0,4.0},{5.0,10.0},{14.0,15.0},{17.0,19.0},{22.0,25.0},{29.0,30.0},{7.0,13.0},{8.0,5.0},{9.0,5.0},{7.0,10.0},{7.0,10.0},{14.0,2.0}};
+//public static double input[][];
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -30,7 +30,7 @@ public class divideconquer {
             	System.out.println(input[i][0]);
             }
             
-            System.out.println("Final result: P1: ("+ ", P2: " +", Distance: ");
+            System.out.println("Final result: P1: ("+ ", P2: " +", Distance: "+closest_pair(12,0,11));
 	}
 	public static void sort_for_x(){
 		for (int i=1; i<input.length; i++){
